@@ -15,5 +15,15 @@ namespace MDaemonSpamCounter
         {
             InitializeComponent();
         }
+
+        private void lRootFolder_DoubleClick(object sender, EventArgs e)
+        {
+            folderBrowserDialog.ShowDialog();
+        }
+
+        private void lRootFolderLabel_DoubleClick(object sender, EventArgs e)
+        {
+            folderBrowserDialog.ShowDialog();
+        }
     }
 }
