@@ -31,7 +31,7 @@
             this.lRootFolderLabel = new System.Windows.Forms.Label();
             this.lRootFolder = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.folderList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lRootFolderLabel
@@ -59,25 +59,27 @@
             this.folderBrowserDialog.Description = "Select a folder that contains MDaemon email folders";
             this.folderBrowserDialog.ShowNewFolderButton = false;
             // 
-            // listView1
+            // folderList
             // 
-            this.listView1.Location = new System.Drawing.Point(15, 25);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(257, 247);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.folderList.Location = new System.Drawing.Point(15, 25);
+            this.folderList.Name = "folderList";
+            this.folderList.Size = new System.Drawing.Size(257, 247);
+            this.folderList.TabIndex = 2;
+            this.folderList.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 284);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.folderList);
             this.Controls.Add(this.lRootFolder);
             this.Controls.Add(this.lRootFolderLabel);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(300, 320);
             this.Name = "Form1";
             this.Text = "MDaemonSpamCounter";
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,7 +90,7 @@
         private System.Windows.Forms.Label lRootFolderLabel;
         private System.Windows.Forms.Label lRootFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView folderList;
     }
 }
 

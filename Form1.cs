@@ -34,5 +34,14 @@ namespace MDaemonSpamCounter
             }
         }
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            // resize the controls on the form 
+            this.folderList.Width = this.Width - 43;
+            this.folderList.Height = this.Height - 73;
+
+            this.lRootFolder.Width = this.Width - 137;
+        }
+
     }
 }
