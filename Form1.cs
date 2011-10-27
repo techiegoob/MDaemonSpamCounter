@@ -18,12 +18,21 @@ namespace MDaemonSpamCounter
 
         private void lRootFolder_DoubleClick(object sender, EventArgs e)
         {
-            folderBrowserDialog.ShowDialog();
+            folderSelect();
         }
 
         private void lRootFolderLabel_DoubleClick(object sender, EventArgs e)
         {
-            folderBrowserDialog.ShowDialog();
+            folderSelect();
         }
+
+        private void folderSelect()
+        {
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.lRootFolder.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+
     }
 }

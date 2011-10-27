@@ -56,6 +56,7 @@
             // 
             // folderBrowserDialog
             // 
+            this.folderBrowserDialog.Description = "Select a folder that contains MDaemon email folders";
             this.folderBrowserDialog.ShowNewFolderButton = false;
             // 
             // listView1
