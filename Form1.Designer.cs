@@ -61,11 +61,13 @@
             // 
             // folderList
             // 
+            this.folderList.FullRowSelect = true;
             this.folderList.Location = new System.Drawing.Point(15, 25);
             this.folderList.Name = "folderList";
             this.folderList.Size = new System.Drawing.Size(257, 247);
             this.folderList.TabIndex = 2;
             this.folderList.UseCompatibleStateImageBehavior = false;
+            this.folderList.View = System.Windows.Forms.View.List;
             // 
             // Form1
             // 

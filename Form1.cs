@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -31,6 +32,7 @@ namespace MDaemonSpamCounter
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 this.lRootFolder.Text = folderBrowserDialog.SelectedPath;
+                DirSearch(folderBrowserDialog.SelectedPath);
             }
         }
 
@@ -41,6 +43,31 @@ namespace MDaemonSpamCounter
             this.folderList.Height = this.Height - 73;
 
             this.lRootFolder.Width = this.Width - 137;
+        }
+
+        void DirSearch(string rootDir)
+        {
+            try
+            {
+                foreach (string d in Directory.GetDirectories(rootDir))
+                {
+                    if (d.Contains("Art"))
+                    {
+                        DirectoryInfo di=new DirectoryInfo(d);
+                        Int64 folderSize=0;
+                        FileInfo[] fis = di.GetFiles();
+                        foreach (FileInfo fi in fis)
+                        {
+                            folderSize += fi.Length;
+                        }
+
+                        this.folderList.Items.Add(folderSize.ToString());
+                    }
+
+                    DirSearch(d);
+                }
+            }
+            catch (Exception ex) { }
         }
 
     }
