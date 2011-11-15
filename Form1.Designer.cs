@@ -35,6 +35,7 @@
             this.clmFolder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lRootFolderLabel
@@ -66,8 +67,8 @@
             // 
             this.folderList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmFolder,
-            this.clmCount,
-            this.clmSize});
+            this.clmSize,
+            this.clmCount});
             this.folderList.FullRowSelect = true;
             this.folderList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.folderList.Location = new System.Drawing.Point(15, 25);
@@ -91,11 +92,22 @@
             this.clmCount.DisplayIndex = 2;
             this.clmCount.Text = "# Files";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(2, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(16, 19);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 284);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.folderList);
             this.Controls.Add(this.lRootFolder);
             this.Controls.Add(this.lRootFolderLabel);
@@ -118,6 +130,7 @@
         private System.Windows.Forms.ColumnHeader clmFolder;
         private System.Windows.Forms.ColumnHeader clmCount;
         private System.Windows.Forms.ColumnHeader clmSize;
+        private System.Windows.Forms.Button button1;
     }
 }
 

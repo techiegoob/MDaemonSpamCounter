@@ -32,17 +32,17 @@ namespace MDaemonSpamCounter
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 this.lRootFolder.Text = folderBrowserDialog.SelectedPath;
+                this.folderList.BeginUpdate();
                 DirSearch(folderBrowserDialog.SelectedPath);
+                this.folderList.EndUpdate();
             }
+
+            formResize();
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            // resize the controls on the form 
-            this.folderList.Width = this.Width - 43;
-            this.folderList.Height = this.Height - 73;
-
-            this.lRootFolder.Width = this.Width - 137;
+            formResize();
         }
 
         void DirSearch(string rootDir)
@@ -63,9 +63,9 @@ namespace MDaemonSpamCounter
                             fileCount++;
                         }
 
-                        ListViewItem lvi = new ListViewItem(di.Name);
-                        lvi.SubItems.Add(fileCount.ToString());
+                        ListViewItem lvi = new ListViewItem(di.FullName);
                         lvi.SubItems.Add(folderSize.ToString());
+                        lvi.SubItems.Add(fileCount.ToString());
                         this.folderList.Items.Add(lvi);
                     }
 
@@ -75,5 +75,23 @@ namespace MDaemonSpamCounter
             catch (Exception ex) { MessageBox.Show(string.Format("Exception: {0}", ex.Message)); }
         }
 
+        void formResize()
+        {
+            // resize the controls on the form 
+            this.folderList.Width = this.Width - 43;
+            this.folderList.Height = this.Height - 73;
+
+            // resize the listview columns
+            this.folderList.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
+            this.folderList.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+            this.folderList.Columns[0].Width = this.folderList.Width - this.folderList.Columns[1].Width - this.folderList.Columns[2].Width - SystemInformation.VerticalScrollBarWidth-5;
+
+            this.lRootFolder.Width = this.Width - 137;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            formResize();
+        }
     }
 }
