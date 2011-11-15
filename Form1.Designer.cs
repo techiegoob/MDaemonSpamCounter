@@ -32,6 +32,9 @@
             this.lRootFolder = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.folderList = new System.Windows.Forms.ListView();
+            this.clmFolder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lRootFolderLabel
@@ -61,13 +64,32 @@
             // 
             // folderList
             // 
+            this.folderList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmFolder,
+            this.clmCount,
+            this.clmSize});
             this.folderList.FullRowSelect = true;
+            this.folderList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.folderList.Location = new System.Drawing.Point(15, 25);
             this.folderList.Name = "folderList";
             this.folderList.Size = new System.Drawing.Size(257, 247);
             this.folderList.TabIndex = 2;
             this.folderList.UseCompatibleStateImageBehavior = false;
-            this.folderList.View = System.Windows.Forms.View.List;
+            this.folderList.View = System.Windows.Forms.View.Details;
+            // 
+            // clmFolder
+            // 
+            this.clmFolder.Text = "Folder";
+            // 
+            // clmSize
+            // 
+            this.clmSize.DisplayIndex = 1;
+            this.clmSize.Text = "Size";
+            // 
+            // clmCount
+            // 
+            this.clmCount.DisplayIndex = 2;
+            this.clmCount.Text = "# Files";
             // 
             // Form1
             // 
@@ -93,6 +115,9 @@
         private System.Windows.Forms.Label lRootFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.ListView folderList;
+        private System.Windows.Forms.ColumnHeader clmFolder;
+        private System.Windows.Forms.ColumnHeader clmCount;
+        private System.Windows.Forms.ColumnHeader clmSize;
     }
 }
 

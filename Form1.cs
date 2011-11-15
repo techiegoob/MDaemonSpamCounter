@@ -55,19 +55,24 @@ namespace MDaemonSpamCounter
                     {
                         DirectoryInfo di=new DirectoryInfo(d);
                         Int64 folderSize=0;
+                        Int64 fileCount = 0;
                         FileInfo[] fis = di.GetFiles();
                         foreach (FileInfo fi in fis)
                         {
                             folderSize += fi.Length;
+                            fileCount++;
                         }
 
-                        this.folderList.Items.Add(folderSize.ToString());
+                        ListViewItem lvi = new ListViewItem(di.Name);
+                        lvi.SubItems.Add(fileCount.ToString());
+                        lvi.SubItems.Add(folderSize.ToString());
+                        this.folderList.Items.Add(lvi);
                     }
 
                     DirSearch(d);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(string.Format("Exception: {0}", ex.Message)); }
         }
 
     }
